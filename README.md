@@ -27,58 +27,6 @@ My teaching background is my superpower - not everyone in data science can break
 
 ---
 
-## Featured Projects
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3><a href="https://github.com/vusumuzinkosi/lending-credit-analysis">Lending Club Loan Default Analysis</a></h3>
-      <p>End-to-end credit risk analysis on <strong>2.26M real Lending Club loans</strong> (2007–2018). Full pipeline across SQL, Python, and Excel — schema design, data cleaning, EDA, ML default prediction (<strong>AUC 0.72</strong>), and <strong>~$95M annual business impact</strong> quantification. Includes an <a href="https://lending-club-app-bnjftcemaxoxqqrhgyhpcr.streamlit.app/">interactive Streamlit app</a> for live risk predictions.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white" />
-        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
-        <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoft-excel&logoColor=white" />
-      </p>
-      <p>
-        <a href="https://lending-club-app-bnjftcemaxoxqqrhgyhpcr.streamlit.app/"><img src="https://img.shields.io/badge/Live_Demo-Streamlit_App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" /></a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3><a href="https://github.com/vusumuzinkosi/us-household-income-sql">US Household Income SQL Analysis</a></h3>
-      <p>Cleaned and analysed household income data using advanced SQL, joins, window functions, CTEs, and aggregations, uncovering regional income trends and demographic patterns across US states and counties.</p>
-      <p>
-        <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/Data%20Analysis-blue?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3><a href="https://github.com/vusumuzinkosi/world-life-expectancy-sql">World Life Expectancy SQL Analysis</a></h3>
-      <p>Investigated correlations between life expectancy and health variables across <strong>190+ countries</strong> using SQL data cleaning and exploratory analysis. Examined trends over time and correlations with economic indicators.</p>
-      <p>
-        <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/Time%20Series-green?style=flat-square" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3><a href="https://github.com/vusumuzinkosi/excel-sales-analysis">Sales Performance Dashboard & Analysis</a></h3>
-      <p>Excel-based sales performance analysis with interactive dashboards, pivot tables, conditional formatting, and visual reporting. Covers data cleaning, trend analysis, and business metrics.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoft-excel&logoColor=white" />
-        <img src="https://img.shields.io/badge/Pivot%20Tables-217346?style=flat-square" />
-        <img src="https://img.shields.io/badge/Data%20Viz-orange?style=flat-square" />
-      </p>
-    </td>
-  </tr>
-</table>
-
----
-
 ## Tech Stack
 
 | Category | Technologies |
