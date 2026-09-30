@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://vusumuzinkosi.github.io"><img src="https://img.shields.io/badge/Portfolio-vusumuzinkosi.github.io-0a192f?style=for-the-badge&logo=google-chrome&logoColor=64ffda" alt="Portfolio"></a>
-  <a href="https://linkedin.com/in/ngwanelegacie"><img src="https://img.shields.io/badge/LinkedIn-ngwanelegacie-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="https://linkedin.com/in/vusumuzinkosi"><img src="https://img.shields.io/badge/LinkedIn-vusumuzinkosi-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:vusizwe@rocketmail.com"><img src="https://img.shields.io/badge/Email-vusizwe@rocketmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
 </p>
 
