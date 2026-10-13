@@ -60,7 +60,8 @@ My STADIO capstone, plus five end-to-end projects I'm completing in stages. Each
 |--------------|-------------|------|
 | PGDip Data Science (NQF 8) | STADIO Higher Education | 2026 (in progress) |
 | Data Science Programme | ALX Africa | 2025–2026 |
-| BSc Mathematics & Computer Science | University of South Africa | 2022–2025 |
+| PGDip TVET | University of the Western Cape | 2024–2025 |
+| BSc Mathematics & Computer Science | University of South Africa | 2019–2024 |
 | BEd Mathematics & Computer Science | University of South Africa | 2012–2017 |
 
 | Certification | Issuer |
