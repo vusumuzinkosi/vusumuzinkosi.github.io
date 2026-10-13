@@ -1,5 +1,5 @@
 <h1 align="center">Vusumuzi Nkosi</h1>
-<h3 align="center">Data Scientist</h3>
+<h3 align="center">Data Scientist · Machine Learning, Experimentation & Forecasting</h3>
 
 <p align="center">
   <a href="https://vusumuzinkosi.github.io"><img src="https://img.shields.io/badge/Portfolio-vusumuzinkosi.github.io-0a192f?style=for-the-badge&logo=google-chrome&logoColor=64ffda" alt="Portfolio"></a>
@@ -9,21 +9,34 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white" />
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=white" />
+  <img src="https://img.shields.io/badge/statsmodels-4051B5?style=flat-square" />
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
   <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=power-bi&logoColor=black" />
-  <img src="https://img.shields.io/badge/Tableau-E97627?style=flat-square&logo=tableau&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-  <img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoft-excel&logoColor=white" />
-  <img src="https://img.shields.io/badge/XGBoost-189F40?style=flat-square&logo=xgboost&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" />
 </p>
 
 ---
 
-Data science postgraduate student (STADIO, NQF 8) and ALX Data Science graduate with **9+ years in mathematics education**. I build machine learning models, write SQL, create dashboards, and turn messy data into stories that drive decisions.
+This is the source for my portfolio website, **[vusumuzinkosi.github.io](https://vusumuzinkosi.github.io)**.
 
-My teaching background is my superpower - not everyone in data science can break down complex quantitative concepts and communicate them clearly to any audience.
+I'm a data science postgraduate student (STADIO, NQF 8) and ALX Data Science graduate with **9+ years in mathematics education**. I build predictive models, analyse experiments and forecast demand, and I start every project from the decision it needs to support.
+
+---
+
+## Projects
+
+Five end-to-end projects, each built around a business question. I'm completing them in stages.
+
+| Project | Business question | Tools | Status |
+|---|---|---|---|
+| [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Which customers are likely to leave, and how much revenue is at risk? | Python, pandas, scikit-learn | In progress |
+| [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should a fraud team review first each day? | Python, scikit-learn, imbalanced-learn | In progress |
+| [Customer Segmentation: RFM and K-means](https://github.com/vusumuzinkosi/customer-segmentation-rfm) | How should customers be grouped for targeted campaigns? | Python, pandas, scikit-learn | In progress |
+| [A/B Test: New Landing Page](https://github.com/vusumuzinkosi/ab-test-landing-page) | Should the online store roll out the new landing page? | Python, SciPy, statsmodels | In progress |
+| [Eskom Demand Forecasting](https://github.com/vusumuzinkosi/eskom-demand-forecasting) | How much electricity will South Africa need next week? | Python, statsmodels, scikit-learn | In progress |
 
 ---
 
@@ -32,10 +45,11 @@ My teaching background is my superpower - not everyone in data science can break
 | Category | Technologies |
 |----------|-------------|
 | **Programming** | Python, SQL, R (basic) |
-| **ML & Modelling** | scikit-learn, XGBoost, Gradient Boosting, Random Forest, Logistic Regression, SMOTE, Feature Engineering, Hyperparameter Tuning, Cross-Validation |
-| **Data Analysis** | Pandas, NumPy, EDA, Data Wrangling, Hypothesis Testing, A/B Testing, Correlation & Regression Analysis |
-| **Visualisation & BI** | Matplotlib, Seaborn, Plotly, Streamlit, Power BI, Tableau, Excel, Dashboard Design, Storytelling with Data |
-| **Tools & Platforms** | Git, Jupyter Notebook, Google Colab, AWS SageMaker, Prompt Engineering, Generative AI |
+| **Machine Learning** | scikit-learn, imbalanced-learn, classification, clustering (K-means), feature engineering, cross-validation |
+| **Statistics & Experimentation** | SciPy, statsmodels, hypothesis testing, A/B testing, confidence intervals, regression |
+| **Forecasting** | Time-series analysis and forecasting with statsmodels |
+| **Data & Visualisation** | pandas, NumPy, Matplotlib, Seaborn, Power BI, Tableau, Excel |
+| **Tools** | Git, GitHub, Jupyter Notebook, Google Colab |
 
 ---
 
