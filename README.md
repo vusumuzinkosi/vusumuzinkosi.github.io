@@ -28,10 +28,11 @@ I'm a data science postgraduate student (STADIO, NQF 8) and ALX Data Science gra
 
 ## Projects
 
-Five end-to-end projects, each built around a business question. I'm completing them in stages.
+My STADIO capstone, plus five end-to-end projects I'm completing in stages. Each one is built around a business question.
 
 | Project | Business question | Tools | Status |
 |---|---|---|---|
+| [Account Activation Prediction (STADIO Capstone)](https://github.com/vusumuzinkosi/cap182-capstone) | Which new accounts will stall before their first deposit, and whom should onboarding contact? | Python, XGBoost, scikit-learn | Capstone: contacting the riskiest 20% reaches 1.79× more stallers than random (ROC-AUC 0.73 on unseen data) |
 | [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Which customers are likely to leave, and how much revenue is at risk? | Python, pandas, scikit-learn | In progress |
 | [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should a fraud team review first each day? | Python, scikit-learn, imbalanced-learn | In progress |
 | [Customer Segmentation: RFM and K-means](https://github.com/vusumuzinkosi/customer-segmentation-rfm) | How should customers be grouped for targeted campaigns? | Python, pandas, scikit-learn | In progress |
