@@ -19,16 +19,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
-    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
-    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024d">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024d">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024d">
 </head>
 <body class="cs-page">
     <header class="cs-header">
         <a class="cs-logo" href="../" aria-label="Home">VN</a>
         <nav class="cs-nav">
             <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
-            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024d" target="_blank" rel="noopener">Resume</a>
         </nav>
     </header>
 
@@ -45,7 +45,7 @@
             <dl class="cs-facts">
                 <div><dt>Data</dt><dd>Iranian Churn dataset (UCI), 2,850 telecom customers after removing duplicates</dd></div>
                 <div><dt>Methods</dt><dd>Logistic regression, random forest, cost-based threshold, expected-loss ranking</dd></div>
-                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn, Streamlit</dd></div>
             </dl>
             <div class="cs-actions">
                 <a class="cta-button" href="https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
@@ -107,6 +107,21 @@
             </figure>
         </section>
         <section class="cs-section">
+            <h2>Interactive call-list planner</h2>
+            <p>The notebooks answer the question for one set of assumptions. A retention manager will want to ask &ldquo;what if&rdquo;: what if we can only make 150 calls this quarter, or the offer costs R250? A Streamlit app turns the analysis into a planner that answers those questions directly.</p>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/churn-streamlit-app.webp" alt="Screenshot of the Streamlit call-list planner with sidebar settings, four headline numbers, the value-captured chart and the call list" loading="lazy" width="1100" height="849">
+                <figcaption>The Streamlit call-list planner.</figcaption>
+            </figure>
+            <ul class="cs-list">
+                <li><strong>Settings:</strong> contacts per quarter, cost of a contact, value of a saved customer, the save rate, and whether to rank by expected loss or churn probability.</li>
+                <li><strong>Live break-even:</strong> it lists only customers whose expected saving exceeds the cost of contacting them.</li>
+                <li><strong>Headline numbers:</strong> customers to contact, churners reached, share of value at risk protected, and expected net value in rand.</li>
+                <li><strong>Honest scores for every customer:</strong> 5-fold out-of-fold predictions for all 2,850 customers; with 300 contacts, ranking by expected loss protects 82% of the value at risk, matching the test-set result.</li>
+                <li><strong>Output:</strong> the call list with action tiers and spending ceilings, downloadable as CSV.</li>
+            </ul>
+        </section>
+        <section class="cs-section">
             <h2>Recommendation</h2>
             <ol class="cs-list">
                 <li>Score every active customer each quarter and contact only those above a churn probability of about 0.23.</li>
@@ -146,7 +161,7 @@
         </div>
     </footer>
 
-    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+    <script src="../chatbot/chatbot.js?v=20261024d" defer></script>
     <!-- Visitor statistics: GoatCounter (no cookies) -->
     <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
