@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eskom Demand Forecasting: How Much Electricity Will South Africa Need Next Week? | Vusumuzi Nkosi</title>
+    <meta name="description" content="A week-ahead, hour-by-hour forecast of South Africa's electricity demand, built on 4.5 years of Eskom data, that beats the standard baselines and comes within 0.1 percentage points of Eskom's own published forecast at the day-ahead horizon, without weather data.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Eskom Demand Forecasting: How Much Electricity Will South Africa Need Next Week?">
+    <meta property="og:description" content="A week-ahead, hour-by-hour forecast of South Africa's electricity demand, built on 4.5 years of Eskom data, that beats the standard baselines and comes within 0.1 percentage points of Eskom's own published forecast at the day-ahead horizon, without weather data.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/eskom-demand-forecasting.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/eskom-demand-forecasting.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+</head>
+<body class="cs-page">
+    <header class="cs-header">
+        <a class="cs-logo" href="../" aria-label="Home">VN</a>
+        <nav class="cs-nav">
+            <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+        </nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-overline">Forecasting &middot; Case study</p>
+            <h1>Eskom Demand Forecasting: How Much Electricity Will South Africa Need Next Week?</h1>
+            <p class="cs-summary">A week-ahead, hour-by-hour forecast of South Africa's electricity demand, built on 4.5 years of Eskom data, that beats the standard baselines and comes within 0.1 percentage points of Eskom's own published forecast at the day-ahead horizon, without weather data.</p>
+            <ul class="cs-metrics">
+                <li><strong>3.1%</strong><span>MAPE a week ahead, 15% better than &ldquo;same as last week&rdquo;</span></li>
+                <li><strong>2.4%</strong><span>MAPE a day ahead, against Eskom's published 2.3%</span></li>
+                <li><strong>52</strong><span>weeks of walk-forward testing</span></li>
+            </ul>
+            <dl class="cs-facts">
+                <div><dt>Data</dt><dd>Eskom Data Portal, hourly, April 2022 to October 2026 (39,600 hours)</dd></div>
+                <div><dt>Methods</dt><dd>Gradient boosting, ridge regression, seasonal baselines, calibrated prediction intervals</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn, statsmodels</dd></div>
+            </dl>
+            <div class="cs-actions">
+                <a class="cta-button" href="https://github.com/vusumuzinkosi/eskom-demand-forecasting" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
+                <a class="cta-button cta-secondary" href="https://github.com/vusumuzinkosi/eskom-demand-forecasting#readme" target="_blank" rel="noopener">Full write-up on GitHub</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The problem</h2>
+            <p>Eskom has to have enough generation ready to meet demand every hour. When demand is higher than planned, the control room runs expensive diesel turbines or cuts load; when it is lower, coal units stand by for nothing. A better forecast means less diesel, fewer emergencies and lower cost.</p>
+            <p><strong>Question:</strong> how much electricity will South Africa need next week, hour by hour, and can a simple, transparent model match Eskom's own published forecast?</p>
+        </section>
+        <section class="cs-section">
+            <h2>What the data shows</h2>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/eskom-weekly-demand.webp" alt="Weekly average demand on the Eskom system falling from about 26 GW in 2022 to about 22.5 GW in 2026" loading="lazy" width="1100" height="396">
+                <figcaption>Demand on the Eskom system fell about 14% between 2022 and 2026.</figcaption>
+            </figure>
+            <ul class="cs-list">
+                <li><strong>Demand is falling:</strong> from about 26.1 GW in 2022 to about 22.5 GW in 2026, largely because of rooftop solar and private generation after years of load shedding.</li>
+                <li><strong>The midday dip deepens every year:</strong> the gap between 7pm and noon grew from 2.3 GW to 4.0 GW, South Africa's version of the &ldquo;duck curve&rdquo;.</li>
+                <li><strong>Strong cycles:</strong> two daily peaks, lower weekends and a winter peak, while public holidays cut daily demand by about 5%.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/eskom-daily-profile-by-year.webp" alt="Average daily demand profile by year, showing the midday dip deepening from 2022 to 2026" loading="lazy" width="1100" height="658">
+                <figcaption>Rooftop solar is hollowing out midday demand.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Approach</h2>
+            <ul class="cs-list">
+                <li><strong>Target and horizon:</strong> RSA Contracted Demand, forecast for the next 168 hours every week.</li>
+                <li><strong>Baselines first:</strong> &ldquo;same hour last week&rdquo; (3.64% MAPE) and a four-week average (3.70%) set the bar.</li>
+                <li><strong>Features known at forecast time:</strong> hour, day of week, month, South African public holidays and the days around them, a time trend, and demand 1 to 4 weeks earlier.</li>
+                <li><strong>Walk-forward validation:</strong> each of 52 test weeks is forecast by a model trained only on earlier data, retrained every 4 weeks, so nothing leaks from the future.</li>
+                <li><strong>Prediction intervals:</strong> quantile gradient boosting, calibrated on the 26 weeks before the test year.</li>
+            </ul>
+        </section>
+        <section class="cs-section">
+            <h2>Results</h2>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Forecast</th><th>MAPE</th><th>MAE</th></tr></thead>
+                    <tbody>
+                        <tr><td>Seasonal naive, week ahead</td><td>3.64%</td><td>818 MW</td></tr>
+                        <tr><td>Calendar regression, week ahead</td><td>5.22%</td><td>1,161 MW</td></tr>
+                        <tr class="cs-row-highlight"><td><strong>Gradient boosting, week ahead</strong></td><td><strong>3.11%</strong></td><td><strong>704 MW</strong></td></tr>
+                        <tr><td>Gradient boosting, day ahead</td><td>2.40%</td><td>540 MW</td></tr>
+                        <tr><td>Eskom published forecast</td><td>2.27%</td><td>512 MW</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The calendar regression lost even to the baseline because a straight-line trend could not keep up with a decline that is speeding up (it over-forecast by almost 900 MW). Gradient boosting combines the calendar with recent demand to set the level.</p>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/eskom-model-comparison.webp" alt="Bar chart of forecast error by model; gradient boosting 3.1% week ahead and 2.4% day ahead against Eskom's 2.3%" loading="lazy" width="1000" height="485">
+                <figcaption>Forecast error over the 52-week test year.</figcaption>
+            </figure>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/eskom-forecast-week-with-interval.webp" alt="One forecast week with the calibrated 80% prediction interval" loading="lazy" width="1100" height="424">
+                <figcaption>A forecast week with its calibrated prediction interval (74% coverage in the test year).</figcaption>
+            </figure>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/eskom-error-by-hour-and-month.webp" alt="Heatmap of forecast error by hour and month; midday hours have the largest errors" loading="lazy" width="1100" height="354">
+                <figcaption>Midday, not the evening peak, is now the hardest hour to forecast.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Recommendation</h2>
+            <ol class="cs-list">
+                <li>Plan winter evening-peak reserves from the upper band, plus a margin of a few hundred MW until the interval is recalibrated.</li>
+                <li>Add solar irradiance and cloud-cover forecasts for midday, now the most uncertain period of the day.</li>
+                <li>Review holidays and bridge days by hand, and add a bridge-day feature.</li>
+                <li>Re-forecast daily: the day-ahead update is nearly as accurate as Eskom's own.</li>
+                <li>Retrain monthly and monitor drift.</li>
+            </ol>
+        </section>
+        <section class="cs-section">
+            <h2>Limitations</h2>
+            <ul class="cs-list">
+                <li>No weather data yet: temperature and cloud cover are the two biggest missing inputs.</li>
+                <li>Eskom's forecast horizon is not published, so the comparison with Eskom is indicative.</li>
+                <li>Intervals were slightly too narrow in the test year (74% coverage for an 80% band).</li>
+                <li>Structural change from rooftop solar is ongoing, so the model needs regular retraining.</li>
+            </ul>
+        </section>
+
+        <section class="cs-section cs-cta">
+            <h2>Interested in this work?</h2>
+            <p>I'm looking for data scientist and data analyst roles in South Africa or remote.</p>
+            <div class="cs-actions">
+                <a class="cta-button" href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email me</a>
+                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <nav class="cs-next" aria-label="Next project">
+            <span>Next project</span>
+            <a href="fraud-detection-mobile-money.html">Fraud Detection: A Daily Review Queue for Mobile Money <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+        </div>
+    </footer>
+
+    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/B Test: Should the Online Store Roll Out the New Landing Page? | Vusumuzi Nkosi</title>
+    <meta name="description" content="A pre-registered A/B test on 290,584 visitors that gives marketing a clear, well-powered answer: do not roll out the new landing page.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A/B Test: Should the Online Store Roll Out the New Landing Page?">
+    <meta property="og:description" content="A pre-registered A/B test on 290,584 visitors that gives marketing a clear, well-powered answer: do not roll out the new landing page.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/ab-test-landing-page.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/ab-test-landing-page.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+</head>
+<body class="cs-page">
+    <header class="cs-header">
+        <a class="cs-logo" href="../" aria-label="Home">VN</a>
+        <nav class="cs-nav">
+            <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+        </nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-overline">Experimentation &middot; Case study</p>
+            <h1>A/B Test: Should the Online Store Roll Out the New Landing Page?</h1>
+            <p class="cs-summary">A pre-registered A/B test on 290,584 visitors that gives marketing a clear, well-powered answer: do not roll out the new landing page.</p>
+            <ul class="cs-metrics">
+                <li><strong>&minus;0.16</strong><span>points conversion change (p = 0.19)</span></li>
+                <li><strong>98%</strong><span>power to detect the lift that matters</span></li>
+                <li><strong>No</strong><span>rollout: the 95% CI sits below +0.5 points</span></li>
+            </ul>
+            <dl class="cs-facts">
+                <div><dt>Data</dt><dd>Udacity A/B test dataset: 294,478 page views over three weeks, with visitor country</dd></div>
+                <div><dt>Methods</dt><dd>Pre-registration, two-proportion z-test, confidence interval, permutation test, power analysis</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, SciPy, statsmodels</dd></div>
+            </dl>
+            <div class="cs-actions">
+                <a class="cta-button" href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
+                <a class="cta-button cta-secondary" href="https://github.com/vusumuzinkosi/ab-test-landing-page#readme" target="_blank" rel="noopener">Full write-up on GitHub</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The problem</h2>
+            <p>The imagined client is a South African online store. Marketing built a new landing page and believes it converts better. For three weeks, visitors were randomly shown the old page or the new one.</p>
+            <p><strong>Question:</strong> is the difference real or noise, and should the store roll out the new page, keep the old one, or keep testing?</p>
+        </section>
+        <section class="cs-section">
+            <h2>Decided before looking at the data</h2>
+            <ul class="cs-list">
+                <li><strong>Metric:</strong> conversion rate per unique visitor; two-sided test at &alpha; = 0.05.</li>
+                <li><strong>Smallest lift worth acting on:</strong> +0.5 percentage points, since a redesign has real costs.</li>
+                <li><strong>Decision rule:</strong> roll out only if the 95% confidence interval is above 0 and reaches +0.5; do not roll out if it sits entirely below +0.5; otherwise keep testing.</li>
+            </ul>
+            <p>Fixing these first prevents p-hacking: choosing the test or the success criterion after seeing the result.</p>
+        </section>
+        <section class="cs-section">
+            <h2>Cleaning and checks</h2>
+            <ul class="cs-list">
+                <li>Removed 3,893 rows (1.3%) where the assigned group and the page shown disagree, a routing bug, and one duplicate visitor.</li>
+                <li>Randomisation check: 145,274 control and 145,310 treatment visitors (sample ratio p = 0.95), with the same country mix in both groups.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/ab-daily-conversion.webp" alt="Daily conversion for old and new pages over 21 days, lines crossing back and forth" loading="lazy" width="1100" height="440">
+                <figcaption>No early spike that fades, so no sign of a novelty effect.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Results</h2>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Page</th><th>Visitors</th><th>Purchases</th><th>Conversion</th></tr></thead>
+                    <tbody>
+                        <tr><td>Old (control)</td><td>145,274</td><td>17,489</td><td>12.04%</td></tr>
+                        <tr><td>New (treatment)</td><td>145,310</td><td>17,264</td><td>11.88%</td></tr>
+                        <tr class="cs-row-highlight"><td><strong>Difference</strong></td><td></td><td></td><td><strong>&minus;0.16 points</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="cs-list">
+                <li>Two-proportion z-test: z = &minus;1.31, <strong>p = 0.19</strong>; 95% confidence interval &minus;0.39 to +0.08 points.</li>
+                <li>A permutation test (5,000 shuffles) and a logistic regression with country give the same answer.</li>
+                <li><strong>Big enough to be decisive:</strong> the test needed about 68,000 visitors per group for 80% power and had about 145,000, giving 98% power for a +0.5 point lift.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/ab-permutation-test.webp" alt="Permutation test distribution with the observed difference marked inside it" loading="lazy" width="1042" height="542">
+                <figcaption>The observed gap is entirely ordinary for chance alone.</figcaption>
+            </figure>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/ab-decision-interval.webp" alt="Confidence interval from -0.39 to +0.08 points, entirely below the +0.5-point lift worth acting on" loading="lazy" width="1000" height="402">
+                <figcaption>A worthwhile improvement is not just unproven; it is ruled out.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Recommendation</h2>
+            <ol class="cs-list">
+                <li>Do not roll out. Running longer would only narrow an interval that already excludes a worthwhile gain.</li>
+                <li>Fix the routing bug that sent 1.3% of visitors to the wrong page, and add an automatic sample ratio mismatch alert.</li>
+                <li>Take a bolder design into the next test, with a power calculation done first.</li>
+            </ol>
+        </section>
+        <section class="cs-section">
+            <h2>Limitations</h2>
+            <ul class="cs-list">
+                <li>Three weeks cannot show long-run effects, such as returning customers adapting to a new design.</li>
+                <li>One pre-registered metric; other metrics would need their own pre-registered test.</li>
+                <li>Not South African data: rand estimates rest on stated assumptions (R450 per order, 415,000 visitors a month).</li>
+            </ul>
+        </section>
+
+        <section class="cs-section cs-cta">
+            <h2>Interested in this work?</h2>
+            <p>I'm looking for data scientist and data analyst roles in South Africa or remote.</p>
+            <div class="cs-actions">
+                <a class="cta-button" href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email me</a>
+                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <nav class="cs-next" aria-label="Next project">
+            <span>Next project</span>
+            <a href="customer-segmentation-rfm.html">Customer Segmentation: RFM and K-means for Targeted Campaigns <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+        </div>
+    </footer>
+
+    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+</body>
+</html>

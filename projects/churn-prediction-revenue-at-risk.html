@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction: Revenue at Risk | Vusumuzi Nkosi</title>
+    <meta name="description" content="A churn model that tells a retention team whom to call first, and how much value that protects, with the decision threshold set from the business cost of each type of error.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Churn Prediction: Revenue at Risk">
+    <meta property="og:description" content="A churn model that tells a retention team whom to call first, and how much value that protects, with the decision threshold set from the business cost of each type of error.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/churn-prediction-revenue-at-risk.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/churn-prediction-revenue-at-risk.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+</head>
+<body class="cs-page">
+    <header class="cs-header">
+        <a class="cs-logo" href="../" aria-label="Home">VN</a>
+        <nav class="cs-nav">
+            <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+        </nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-overline">Customer retention &middot; Case study</p>
+            <h1>Churn Prediction: Revenue at Risk</h1>
+            <p class="cs-summary">A churn model that tells a retention team whom to call first, and how much value that protects, with the decision threshold set from the business cost of each type of error.</p>
+            <ul class="cs-metrics">
+                <li><strong>95%</strong><span>of churners caught on unseen customers (ROC AUC 0.98)</span></li>
+                <li><strong>82%</strong><span>of value at risk protected at 10% contact capacity</span></li>
+                <li><strong>58%</strong><span>protected if ranked by churn probability instead</span></li>
+            </ul>
+            <dl class="cs-facts">
+                <div><dt>Data</dt><dd>Iranian Churn dataset (UCI), 2,850 telecom customers after removing duplicates</dd></div>
+                <div><dt>Methods</dt><dd>Logistic regression, random forest, cost-based threshold, expected-loss ranking</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn</dd></div>
+            </dl>
+            <div class="cs-actions">
+                <a class="cta-button" href="https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
+                <a class="cta-button cta-secondary" href="https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk#readme" target="_blank" rel="noopener">Full write-up on GitHub</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The problem</h2>
+            <p>The imagined client is a South African mobile operator whose retention team can contact about 300 customers a quarter. Contacting a customer who would have stayed costs about R140; missing one who leaves costs about R3,000, roughly 20 times more.</p>
+            <p><strong>Question:</strong> which customers will churn next quarter, how much value is at risk, and whom should the team call first?</p>
+        </section>
+        <section class="cs-section">
+            <h2>What the data shows</h2>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/churn-churn-rate-by-group.webp" alt="Churn rate by group: customers who complained churned at 83%, non-active customers at 48%" loading="lazy" width="1100" height="340">
+                <figcaption>Complaints are the loudest warning sign.</figcaption>
+            </figure>
+            <ul class="cs-list">
+                <li><strong>Complaints:</strong> 83% of customers who complained left, against 10% of those who did not.</li>
+                <li><strong>Churners go quiet first:</strong> they made about 40% as many calls and sent about 20% as many SMSs, visible three months before they left.</li>
+                <li><strong>Value is concentrated:</strong> the most valuable fifth of churners accounts for about half of all value lost, so a call list must weigh value, not only risk.</li>
+            </ul>
+        </section>
+        <section class="cs-section">
+            <h2>Approach</h2>
+            <ul class="cs-list">
+                <li><strong>Baseline:</strong> &ldquo;no churn&rdquo; is 84% accurate and catches nobody, so accuracy is not the measure.</li>
+                <li><strong>Models:</strong> logistic regression (PR AUC 0.75) and random forest (PR AUC 0.93) compared with 5-fold cross-validation; the forest goes forward.</li>
+                <li><strong>Honest probabilities:</strong> no class weighting, because expected loss needs real probabilities.</li>
+                <li><strong>Threshold from costs:</strong> contacting pays off when p(churn) &times; 30% save rate &times; R3,000 &gt; R140; net value peaks at a threshold of 0.23, not the default 0.5.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/churn-net-value-by-threshold.webp" alt="Net value against decision threshold, peaking around 0.23" loading="lazy" width="1042" height="542">
+                <figcaption>The cost-based threshold earns more than the default 0.5.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Results</h2>
+            <p>On 713 customers the model had never seen (112 churners):</p>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Model</th><th>Threshold</th><th>Recall</th><th>Precision</th><th>Flagged</th></tr></thead>
+                    <tbody>
+                        <tr><td>Logistic regression</td><td>0.50</td><td>0.48</td><td>0.83</td><td>65</td></tr>
+                        <tr><td>Random forest</td><td>0.50</td><td>0.79</td><td>0.92</td><td>96</td></tr>
+                        <tr class="cs-row-highlight"><td><strong>Random forest</strong></td><td><strong>0.23</strong></td><td><strong>0.95</strong></td><td><strong>0.71</strong></td><td><strong>149</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/churn-confusion-matrices.webp" alt="Confusion matrices at thresholds 0.5 and 0.23" loading="lazy" width="1100" height="459">
+                <figcaption>Moving to 0.23 catches 18 more churners for 35 extra calls, the right trade at a 20 to 1 cost ratio.</figcaption>
+            </figure>
+            <p><strong>From scores to a call list.</strong> Customers above the threshold are ranked by expected loss (probability &times; value). With capacity for 75 contacts on the test set, the first 75 calls protect 82% of churners' value, against 58% when ranking by probability and 10% at random.</p>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/churn-value-captured.webp" alt="Share of churn value protected against customers contacted, by ranking method" loading="lazy" width="1000" height="543">
+                <figcaption>Ranking by expected loss reaches the valuable churners first.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Recommendation</h2>
+            <ol class="cs-list">
+                <li>Score every active customer each quarter and contact only those above a churn probability of about 0.23.</li>
+                <li>Call in order of expected loss, not probability, with personal calls for the top tier and lower-cost offers below it.</li>
+                <li>Treat a complaint as an immediate trigger for a retention case.</li>
+                <li>Add a monthly usage-drop alert for customers going quiet.</li>
+                <li>Measure the real save rate with a controlled test, replacing the 30% assumption.</li>
+            </ol>
+        </section>
+        <section class="cs-section">
+            <h2>Limitations</h2>
+            <ul class="cs-list">
+                <li>Not South African data: rand figures rest on stated assumptions and show the reasoning, not a forecast.</li>
+                <li>A small dataset and a single 12-month snapshot; a deployed model needs monitoring and retraining.</li>
+                <li>No causal claim: the model finds who is likely to leave, not whether a call will change the outcome.</li>
+            </ul>
+        </section>
+
+        <section class="cs-section cs-cta">
+            <h2>Interested in this work?</h2>
+            <p>I'm looking for data scientist and data analyst roles in South Africa or remote.</p>
+            <div class="cs-actions">
+                <a class="cta-button" href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email me</a>
+                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <nav class="cs-next" aria-label="Next project">
+            <span>Next project</span>
+            <a href="ab-test-landing-page.html">A/B Test: Should the Online Store Roll Out the New Landing Page? <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+        </div>
+    </footer>
+
+    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+</body>
+</html>

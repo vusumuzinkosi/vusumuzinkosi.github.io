@@ -2505,3 +2505,22 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+.featured-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+}
+
+.featured-project-link-primary {
+  padding: 8px 14px;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+}
+
+.featured-project-link-primary:hover,
+.featured-project-link-primary:focus {
+  background-color: var(--green-tint);
+  text-decoration: none;
+}
