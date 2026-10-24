@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Vusumuzi Nkosi</title>
+    <meta name="description" content="Five end-to-end data science case studies: Eskom demand forecasting, mobile money fraud detection, churn prediction, an A/B test and customer segmentation.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects | Vusumuzi Nkosi">
+    <meta property="og:description" content="Five end-to-end data science case studies: Eskom demand forecasting, mobile money fraud detection, churn prediction, an A/B test and customer segmentation.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Vusumuzi Nkosi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024f">
+    <link rel="stylesheet" href="../assets/css/site.css?v=20261024f">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024f">
+</head>
+<body>
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+
+    <div class="social-links-fixed">
+        <ul>
+            <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+
+    <header class="header">
+        <nav class="nav" aria-label="Main">
+            <div class="nav-logo">
+                <a href="../" aria-label="Home">VN</a>
+            </div>
+            <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu"><span></span></button>
+            <div class="nav-menu" id="nav-menu">
+                <ol>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../projects/" aria-current="page">Projects</a></li>
+                    <li><a href="../teaching.html">Teaching</a></li>
+                    <li><a href="../writing/">Writing</a></li>
+                    <li><a href="../now.html">Now</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ol>
+                <a href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024f" target="_blank" rel="noopener" class="nav-cv-button">Resume</a>
+            </div>
+        </nav>
+    </header>
+    <div class="nav-scrim"></div>
+
+    <main id="main">
+        <section class="page-hero">
+            <p class="overline">Projects</p>
+            <h1>Models that end in a decision.</h1>
+            <p class="lede">Five end-to-end projects. Each one starts from a business question, beats a simple baseline, and ends with a decision a team could act on.</p>
+        </section>
+
+        <section class="page-section work">
+            <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Forecasting</p>
+                        <h3 class="featured-project-title"><a href="eskom-demand-forecasting.html">Eskom Demand Forecasting: How Much Electricity Will South Africa Need Next Week?</a></h3>
+                        <p class="featured-project-description">An hour-by-hour, week-ahead forecast of national electricity demand from 4.5 years of Eskom data, using calendar, public-holiday and lagged-demand features, with no weather data.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>3.1%</strong><span>error a week ahead, 15% better than &ldquo;same as last week&rdquo;</span></li>
+                            <li><strong>2.4%</strong><span>error a day ahead, against Eskom's own 2.3%</span></li>
+                            <li><strong>52</strong><span>weeks of walk-forward testing</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
+                            <li>Python</li>
+                            <li>scikit-learn</li>
+                            <li>Gradient boosting</li>
+                            <li>Walk-forward validation</li>
+                        </ul>
+                        <div class="featured-project-links">
+                            <a class="featured-project-link featured-project-link-primary" href="eskom-demand-forecasting.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="featured-project-link" href="https://github.com/vusumuzinkosi/eskom-demand-forecasting" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </div>
+                    <a class="featured-project-chart" href="eskom-demand-forecasting.html" aria-label="Read the case study">
+                        <img src="../assets/images/projects/eskom-model-comparison.webp" alt="Bar chart of forecast error: seasonal naive 3.6%, four-week average 3.7%, calendar regression 5.2%, gradient boosting 3.1% week ahead; gradient boosting 2.4% and Eskom published 2.3% day ahead" loading="lazy" width="1000" height="485">
+                    </a>
+                </article>
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Fraud detection</p>
+                        <h3 class="featured-project-title"><a href="fraud-detection-mobile-money.html">Fraud Detection: A Daily Review Queue for Mobile Money</a></h3>
+                        <p class="featured-project-description">Turns 2.6 million mobile money transactions into a daily review queue sized to a six-analyst fraud team, using only information known at transaction time and a time-based split, after removing a leaking balance column.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>98%</strong><span>of fraud cases caught (89% of the money)</span></li>
+                            <li><strong>87%</strong><span>of flagged transactions are genuine fraud</span></li>
+                            <li><strong>300</strong><span>reviews a day, matching team capacity</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
+                            <li>Python</li>
+                            <li>scikit-learn</li>
+                            <li>Logistic regression</li>
+                            <li>Imbalanced data</li>
+                        </ul>
+                        <div class="featured-project-links">
+                            <a class="featured-project-link featured-project-link-primary" href="fraud-detection-mobile-money.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="featured-project-link" href="https://github.com/vusumuzinkosi/fraud-detection-mobile-money" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </div>
+                    <a class="featured-project-chart" href="fraud-detection-mobile-money.html" aria-label="Read the case study">
+                        <img src="../assets/images/projects/fraud-capacity-tradeoff.webp" alt="Line chart of fraud cases caught and precision against reviews per day; at the current capacity of 300 reviews, about 98% of fraud is caught with 87% precision" loading="lazy" width="1000" height="564">
+                    </a>
+                </article>
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Customer retention</p>
+                        <h3 class="featured-project-title"><a href="churn-prediction-revenue-at-risk.html">Churn Prediction: Revenue at Risk</a></h3>
+                        <p class="featured-project-description">Tells a retention team whom to call first. A random forest with a decision threshold set from the business cost of each error, then customers ranked by expected loss rather than churn probability alone. A live Streamlit planner rebuilds the call list for any team capacity and costs.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>95%</strong><span>of churners caught (ROC AUC 0.98)</span></li>
+                            <li><strong>82%</strong><span>of value at risk protected at 10% contact capacity</span></li>
+                            <li><strong>58%</strong><span>if ranked by churn probability instead</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
+                            <li>Python</li>
+                            <li>scikit-learn</li>
+                            <li>Random forest</li>
+                            <li>Cost-based threshold</li>
+                            <li>Streamlit</li>
+                        </ul>
+                        <div class="featured-project-links">
+                            <a class="featured-project-link featured-project-link-primary" href="churn-prediction-revenue-at-risk.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="featured-project-link" href="https://vusumuzinkosi-churn-planner.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-play-circle" aria-hidden="true"></i> Live demo</a>
+                            <a class="featured-project-link" href="https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </div>
+                    <a class="featured-project-chart" href="churn-prediction-revenue-at-risk.html" aria-label="Read the case study">
+                        <img src="../assets/images/projects/churn-value-captured.webp" alt="Line chart of churn value protected against customers contacted; ranking by expected loss reaches about 82% at the team capacity of 75, against about 58% for churn probability and 10% for random calling" loading="lazy" width="1000" height="543">
+                    </a>
+                </article>
+
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Experimentation</p>
+                        <h3 class="featured-project-title"><a href="ab-test-landing-page.html">A/B Test: Should the Online Store Roll Out the New Landing Page?</a></h3>
+                        <p class="featured-project-description">A pre-registered test on 290,584 visitors, with the significance level and the smallest lift worth acting on fixed before looking at results, after cleaning mismatched rows and duplicate users.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>&minus;0.16</strong><span>points conversion change (p = 0.19)</span></li>
+                            <li><strong>98%</strong><span>power to detect the lift that matters</span></li>
+                            <li><strong>No</strong><span>rollout: the whole 95% CI sits below +0.5 points</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
+                            <li>Python</li>
+                            <li>statsmodels</li>
+                            <li>SciPy</li>
+                            <li>Hypothesis testing</li>
+                        </ul>
+                        <div class="featured-project-links">
+                            <a class="featured-project-link featured-project-link-primary" href="ab-test-landing-page.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="featured-project-link" href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </div>
+                    <a class="featured-project-chart" href="ab-test-landing-page.html" aria-label="Read the case study">
+                        <img src="../assets/images/projects/ab-decision-interval.webp" alt="Confidence interval chart: the new page changed conversion by -0.16 points, 95% CI -0.39 to +0.08, entirely below the +0.5-point lift worth acting on" loading="lazy" width="1000" height="402">
+                    </a>
+                </article>
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Customer analytics</p>
+                        <h3 class="featured-project-title"><a href="customer-segmentation-rfm.html">Customer Segmentation: RFM and K-means for Targeted Campaigns</a></h3>
+                        <p class="featured-project-description">Replaces one-size-fits-all email with four customer segments, each with its own campaign. RFM tiers built by hand as a baseline, then K-means on log-scaled RFM, validated on the following six months of spending. The cleaning and RFM steps are rebuilt in SQL (DuckDB) and match the pandas results exactly.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>19%</strong><span>of customers bring in 72% of revenue</span></li>
+                            <li><strong>4</strong><span>segments, each with a proposed campaign</span></li>
+                            <li><strong>19&times;</strong><span>more spent by the top segment than lapsed buyers</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
+                            <li>Python</li>
+                            <li>pandas</li>
+                            <li>scikit-learn</li>
+                            <li>K-means</li>
+                            <li>SQL (DuckDB)</li>
+                        </ul>
+                        <div class="featured-project-links">
+                            <a class="featured-project-link featured-project-link-primary" href="customer-segmentation-rfm.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="featured-project-link" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </div>
+                    <a class="featured-project-chart" href="customer-segmentation-rfm.html" aria-label="Read the case study">
+                        <img src="../assets/images/projects/segmentation-segment-share.webp" alt="Stacked bar chart: loyal big spenders are 19% of customers and 72% of revenue; drifting regulars 25% and 18%; new and promising 21%; lapsed one-time buyers 35%" loading="lazy" width="1000" height="471">
+                    </a>
+                </article>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <p>Designed &amp; built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a> &middot; Newcastle, KwaZulu-Natal &middot; <span data-year>2026</span></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js?v=20261024f"></script>
+    <script src="../assets/js/site.js?v=20261024f"></script>
+    <script src="../chatbot/chatbot.js?v=20261024f" defer></script>
+    <!-- Visitor statistics: GoatCounter (no cookies) -->
+    <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

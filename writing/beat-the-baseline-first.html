@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat the baseline first | Vusumuzi Nkosi</title>
+    <meta name="description" content="Why every model I build has to beat something simple before I trust it, with numbers from my own projects.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Beat the baseline first | Vusumuzi Nkosi">
+    <meta property="og:description" content="Why every model I build has to beat something simple before I trust it, with numbers from my own projects.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/writing/beat-the-baseline-first.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Vusumuzi Nkosi">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/writing/beat-the-baseline-first.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024f">
+    <link rel="stylesheet" href="../assets/css/site.css?v=20261024f">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024f">
+</head>
+<body>
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+
+    <div class="social-links-fixed">
+        <ul>
+            <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+
+    <header class="header">
+        <nav class="nav" aria-label="Main">
+            <div class="nav-logo">
+                <a href="../" aria-label="Home">VN</a>
+            </div>
+            <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu"><span></span></button>
+            <div class="nav-menu" id="nav-menu">
+                <ol>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../projects/">Projects</a></li>
+                    <li><a href="../teaching.html">Teaching</a></li>
+                    <li><a href="../writing/" aria-current="page">Writing</a></li>
+                    <li><a href="../now.html">Now</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ol>
+                <a href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024f" target="_blank" rel="noopener" class="nav-cv-button">Resume</a>
+            </div>
+        </nav>
+    </header>
+    <div class="nav-scrim"></div>
+
+    <main id="main">
+        <article class="article">
+            <header class="page-hero" style="padding-bottom:10px">
+                <p class="overline">Method</p>
+                <h1>Beat the baseline first</h1>
+                <p class="article-meta"><time datetime="2026-10-24">24 Oct 2026</time> &middot; 4 min read</p>
+            </header>
+
+            <div class="article-body">
+                <p>A model on its own tells you very little. Saying a forecast is 3.1% off sounds good, but good compared to what? Every project I build starts by asking what someone would do <em>without</em> the model, and then checking whether the model actually does better.</p>
+
+                <h2>What a baseline is</h2>
+                <p>A baseline is the simplest reasonable answer to the question. For a demand forecast it is "next week will look like this week". For a call list it is "phone people at random", or "phone the ones most likely to leave". It costs almost nothing to build, and it is often what the team is doing already.</p>
+                <p>If my model cannot beat that, it does not matter how clever it is.</p>
+
+                <h2>Forecasting electricity demand</h2>
+                <p>In my <a href="../projects/eskom-demand-forecasting.html">Eskom demand forecasting</a> project I compared four approaches over 52 weeks of walk-forward testing:</p>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr><th>Approach (week ahead)</th><th>Error</th></tr></thead>
+                    <tbody>
+                        <tr><td>Same as last week (seasonal naive)</td><td>3.6%</td></tr>
+                        <tr><td>Average of the last four weeks</td><td>3.7%</td></tr>
+                        <tr><td>Calendar regression</td><td>5.2%</td></tr>
+                        <tr><td>Gradient boosting</td><td>3.1%</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>Two things stand out. The final model is about 15% better than "same as last week", which is a real but modest gain. And the calendar regression, which looks more sophisticated than the naive baseline, was clearly worse. Without the baseline I might have shipped it.</p>
+
+                <h2>Ranking a churn call list</h2>
+                <p>Baselines are not only about accuracy. In the <a href="../projects/churn-prediction-revenue-at-risk.html">churn project</a> the retention team can only call about 10% of customers. Calling at random protects about 10% of the revenue at risk. Ranking by churn probability gets to about 58%. Ranking by expected loss, probability times what the customer is worth, protects about 82%.</p>
+                <p>The same model sits behind both rankings. The baseline comparison showed that how you <em>use</em> the scores mattered as much as the scores themselves.</p>
+
+                <h2>Sometimes the answer is "don't"</h2>
+                <p>In the <a href="../projects/ab-test-landing-page.html">A/B test</a>, the new landing page was compared with the old one, which is the baseline. Conversion moved by &minus;0.16 points, and the whole 95% confidence interval sat below the smallest lift worth acting on. The right recommendation was to keep the old page. A baseline protects you from shipping change for its own sake.</p>
+
+                <blockquote>Before asking how good a model is, ask what it beats.</blockquote>
+
+                <h2>The habit</h2>
+                <p>I learned this in the classroom before I learned it in Python. When a new teaching method seems to work, the first question is whether the class would have improved anyway. The tools are different now, but the question is the same.</p>
+
+                <div class="article-footer">
+                    <p>Questions or a different view? <a href="../contact.html">Send me a message</a>. More in <a href="./">Writing</a>.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-content">
+            <p>Designed &amp; built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a> &middot; Newcastle, KwaZulu-Natal &middot; <span data-year>2026</span></p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js?v=20261024f"></script>
+    <script src="../assets/js/site.js?v=20261024f"></script>
+    <script src="../chatbot/chatbot.js?v=20261024f" defer></script>
+    <!-- Visitor statistics: GoatCounter (no cookies) -->
+    <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
