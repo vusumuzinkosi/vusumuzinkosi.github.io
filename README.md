@@ -32,7 +32,7 @@ My STADIO capstone, plus five end-to-end projects I'm completing in stages. Each
 
 | Project | Business question | Tools | Status |
 |---|---|---|---|
-| [Account Activation Prediction (STADIO Capstone)](https://github.com/vusumuzinkosi/cap182-capstone) | Which new accounts will stall before their first deposit, and whom should onboarding contact? | Python, XGBoost, scikit-learn | Capstone: contacting the riskiest 20% reaches 1.79× more stallers than random (ROC-AUC 0.73 on unseen data) |
+| [Account Activation Prediction (STADIO Capstone)](https://github.com/vusumuzinkosi/cap182-capstone) | Which new accounts will stall before their first deposit, and whom should onboarding contact? | Python, XGBoost, scikit-learn | Capstone: contacting the riskiest 20% reaches 1.79× more stallers than random (95% CI 1.48–2.12; ROC-AUC 0.73 on unseen data). [Video presentation](https://youtu.be/vK5F7muNSz8) |
 | [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Which customers are likely to leave, and how much revenue is at risk? | Python, pandas, scikit-learn | In progress |
 | [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should a fraud team review first each day? | Python, scikit-learn, imbalanced-learn | In progress |
 | [Customer Segmentation: RFM and K-means](https://github.com/vusumuzinkosi/customer-segmentation-rfm) | How should customers be grouped for targeted campaigns? | Python, pandas, scikit-learn | In progress |
