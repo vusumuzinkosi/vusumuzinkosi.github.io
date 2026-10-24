@@ -74,7 +74,7 @@ Five end-to-end projects. Each one starts from a business question and ends with
 
 ## Experience
 
-**Senior Lecturer — Mathematics & IT** | Amajuba TVET College, Newcastle, KZN | *Feb 2017 – Present*
+**Senior Lecturer, Mathematics & IT** | Majuba TVET College, Newcastle, KZN | *Feb 2017 – Present*
 > Delivers mathematics and IT instruction to 100+ students annually. Analyses student performance data to identify at-risk learners. Developed standardised assessment rubrics adopted department-wide. Mentored students in IT competitions at regional and national level.
 
 **Special Educator — Mathematics** | Mdumiseni High School, KZN | *Jan 2012 – Mar 2016*
