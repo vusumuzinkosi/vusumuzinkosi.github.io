@@ -21,20 +21,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css?v=20261024f">
-    <link rel="stylesheet" href="../assets/css/project.css?v=20261024f">
+    <link rel="stylesheet" href="../assets/css/site.css?v=20261024j">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024j">
     <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024f">
 </head>
 <body class="cs-page">
-    <header class="cs-header">
-        <a class="cs-logo" href="../" aria-label="Vusumuzi Nkosi, home"><svg class="logo-mark" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" focusable="false"><rect x="2" y="2" width="44" height="44" rx="9" fill="none" stroke="#64ffda" stroke-width="2.4"/><polyline points="9,14 15.5,34 22,14" fill="none" stroke="#64ffda" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="27,34 27,14 38,34 38,17" fill="none" stroke="#64ffda" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="13" r="2.8" fill="#0a192f" stroke="#64ffda" stroke-width="2"/></svg></a>
-        <nav class="cs-nav">
-            <a href="./"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
-            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024h" target="_blank" rel="noopener">Resume</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="social-links-fixed">
+        <ul>
+            <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+
+    <header class="header">
+        <nav class="nav" aria-label="Main">
+            <div class="nav-logo">
+                <a href="../" aria-label="Vusumuzi Nkosi, home"><svg class="logo-mark" viewBox="0 0 48 48" width="42" height="42" aria-hidden="true" focusable="false"><rect x="2" y="2" width="44" height="44" rx="9" fill="none" stroke="#64ffda" stroke-width="2.4"/><polyline points="9,14 15.5,34 22,14" fill="none" stroke="#64ffda" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="27,34 27,14 38,34 38,17" fill="none" stroke="#64ffda" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="13" r="2.8" fill="#0a192f" stroke="#64ffda" stroke-width="2"/></svg></a>
+            </div>
+            <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu"><span></span></button>
+            <div class="nav-menu" id="nav-menu">
+                <ol>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../projects/" aria-current="page">Projects</a></li>
+                    <li><a href="../teaching.html">Teaching</a></li>
+                    <li><a href="../writing/">Writing</a></li>
+                    <li><a href="../now.html">Now</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ol>
+                <a href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024h" target="_blank" rel="noopener" class="nav-cv-button">Resume</a>
+            </div>
         </nav>
     </header>
+    <div class="nav-scrim"></div>
 
-    <main class="cs-main">
+    <main id="main" class="cs-main">
         <section class="cs-hero">
+            <a class="cs-back" href="./"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
             <p class="cs-overline">Fraud detection &middot; Case study</p>
             <h1>Fraud Detection: A Daily Review Queue for Mobile Money</h1>
             <p class="cs-summary">A fraud model that hands a mobile money fraud team its daily review queue, sized to how many cases six analysts can actually check, built on 2.6 million simulated transactions.</p>
@@ -145,11 +170,20 @@
     </main>
 
     <footer class="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="mailto:vusizwe@rocketmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
         <div class="footer-content">
-            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+            <p>Designed &amp; built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a> &middot; Newcastle, KwaZulu-Natal &middot; <span data-year>2026</span></p>
         </div>
     </footer>
 
+    <script src="../assets/js/main.js?v=20261024f"></script>
+    <script src="../assets/js/site.js?v=20261024f"></script>
     <script src="../chatbot/chatbot.js?v=20261024f" defer></script>
     <!-- Visitor statistics: GoatCounter (no cookies) -->
     <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

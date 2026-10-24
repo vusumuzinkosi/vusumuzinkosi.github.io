@@ -715,8 +715,7 @@ button.cta-button { background: transparent; }
 }
 
 /* ---------- Logo mark (replaces the old "VN" text box) ---------- */
-.header .nav-logo a,
-.cs-logo {
+.header .nav-logo a {
   width: 42px;
   height: 42px;
   padding: 0;
@@ -800,4 +799,25 @@ button.cta-button { background: transparent; }
   margin: 0 0 0 26px;
   color: var(--light-slate);
   font-size: var(--fz-md);
+}
+
+/* ── Layout polish ── */
+
+/* Three cards per row on tablets and one per row below that,
+   so the third card is never left on its own */
+@media (min-width: 700px) and (max-width: 1080px) {
+  .explore-grid,
+  .mini-projects { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+  .explore-grid,
+  .mini-projects { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* "Last updated" note on the Now page: small print, not body text */
+.page-section p.updated {
+  margin-top: 40px;
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
 }
