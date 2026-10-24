@@ -3,59 +3,32 @@
   background-color: var(--dark-navy);
 }
 
-.cs-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px clamp(16px, 5vw, 50px);
-  background-color: rgba(10, 25, 47, 0.92);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px -10px var(--navy-shadow);
+.cs-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--nav-height) 16px 60px;
 }
 
-.cs-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  color: var(--green);
-  border: 2px solid var(--green);
-  border-radius: var(--border-radius);
-  font-family: var(--font-mono);
-  font-weight: 600;
-  text-decoration: none;
+.cs-hero {
+  padding: 50px 0 30px;
 }
 
-.cs-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.cs-nav > a:first-child {
-  color: var(--lightest-slate);
+.cs-back {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--light-slate);
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
   text-decoration: none;
 }
 
-.cs-nav > a:first-child:hover,
-.cs-nav > a:first-child:focus {
+.cs-back i {
+  margin-right: 6px;
+}
+
+.cs-back:hover,
+.cs-back:focus {
   color: var(--green);
-}
-
-.cs-main {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 16px 60px;
-}
-
-.cs-hero {
-  padding: 70px 0 30px;
 }
 
 .cs-overline {
@@ -305,7 +278,7 @@
 
 @media (max-width: 600px) {
   .cs-hero {
-    padding-top: 40px;
+    padding-top: 24px;
   }
 
   .cs-metrics {
@@ -328,7 +301,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Logo mark (replaces the old "VN" text box) */
-.cs-logo { padding: 0; border: 0; border-radius: 8px; }
-.cs-logo .logo-mark { display: block; width: 42px; height: 42px; }
