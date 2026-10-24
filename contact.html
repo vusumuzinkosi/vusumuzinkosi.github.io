@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css?v=20261024f">
-    <link rel="stylesheet" href="assets/css/site.css?v=20261024h">
+    <link rel="stylesheet" href="assets/css/site.css?v=20261024i">
     <link rel="stylesheet" href="chatbot/chatbot.css?v=20261024f">
 </head>
 <body>
@@ -76,11 +76,15 @@
                     <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div>
                         <label for="name">Name</label>
-                        <input id="name" name="name" type="text" autocomplete="name" required>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
                     </div>
                     <div>
                         <label for="email">Email</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+                    </div>
+                    <div>
+                        <label for="company">Company <span class="optional">(optional)</span></label>
+                        <input id="company" name="company" type="text" autocomplete="organization" placeholder="Company or organisation">
                     </div>
                     <div>
                         <label for="topic">What is it about?</label>
@@ -93,17 +97,27 @@
                     </div>
                     <div>
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" minlength="10" placeholder="Tell me about the role, the project or your question." required></textarea>
                     </div>
                     <button class="cta-button" type="submit">Send message</button>
                     <p class="form-note" data-form-status aria-live="polite">Your message goes straight to my inbox. I don't share your details.</p>
                 </form>
 
                 <div class="contact-aside">
-                    <a href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>vusizwe@rocketmail.com</a>
+                    <h2 class="aside-heading">Or reach me directly</h2>
+                    <a href="mailto:vusizwe@rocketmail.com?subject=Hello%20from%20your%20portfolio"><i class="fas fa-envelope" aria-hidden="true"></i>vusizwe@rocketmail.com</a>
                     <a href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i>linkedin.com/in/vusumuzinkosi</a>
                     <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i>github.com/vusumuzinkosi</a>
                     <a href="assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024h" target="_blank" rel="noopener"><i class="fas fa-file-alt" aria-hidden="true"></i>Download my resume</a>
+
+                    <div class="availability">
+                        <h2 class="aside-heading">Availability</h2>
+                        <dl>
+                            <div><dt><i class="fas fa-briefcase" aria-hidden="true"></i>Roles</dt><dd>Data scientist and data analyst</dd></div>
+                            <div><dt><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Location</dt><dd>Newcastle, KwaZulu-Natal, and open to remote</dd></div>
+                            <div><dt><i class="fas fa-clock" aria-hidden="true"></i>Time zone</dt><dd>SAST (UTC+2)</dd></div>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </section>

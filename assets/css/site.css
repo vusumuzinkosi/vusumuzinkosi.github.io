@@ -768,3 +768,36 @@ button.cta-button { background: transparent; }
 /* Keep the chat button out of the way of the open mobile menu */
 .nav-open .chatbot-toggle,
 .nav-open .chatbot-window { visibility: hidden; }
+
+/* ── Contact page: direct links and availability ── */
+.contact-form .optional {
+  color: var(--slate);
+  text-transform: none;
+}
+.contact-form ::placeholder { color: var(--dark-slate); opacity: 1; }
+
+.contact-aside .aside-heading {
+  margin: 0 0 6px;
+  color: var(--lightest-slate);
+  font-size: var(--fz-lg);
+}
+
+.availability {
+  margin-top: 22px;
+  padding: 20px 22px;
+  border: 1px solid var(--lightest-navy);
+  border-radius: var(--border-radius);
+}
+.availability dl { margin: 12px 0 0; display: grid; gap: 14px; }
+.availability dl div { display: grid; gap: 2px; }
+.availability dt {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+}
+.availability dt i { width: 18px; margin-right: 8px; font-size: 14px; }
+.availability dd {
+  margin: 0 0 0 26px;
+  color: var(--light-slate);
+  font-size: var(--fz-md);
+}
