@@ -713,3 +713,14 @@ button.cta-button { background: transparent; }
 @media (max-width: 480px) {
   .section-heading { white-space: normal; }
 }
+
+/* ---------- Logo mark (replaces the old "VN" text box) ---------- */
+.header .nav-logo a,
+.cs-logo {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 8px;
+}
+.logo-mark { display: block; width: 42px; height: 42px; }
