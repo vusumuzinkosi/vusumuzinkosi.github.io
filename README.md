@@ -28,11 +28,10 @@ I'm a data science postgraduate student (STADIO, NQF 8) and ALX Data Science gra
 
 ## Projects
 
-Six end-to-end projects, including my STADIO capstone. Each one starts from a business question and ends with a decision someone could act on.
+Five end-to-end projects. Each one starts from a business question and ends with a decision someone could act on.
 
 | Project | Business question | Result | Tools |
 |---|---|---|---|
-| [Account Activation Prediction (STADIO Capstone)](https://github.com/vusumuzinkosi/cap182-capstone) | Which new accounts will stall before their first deposit, and whom should onboarding contact? | Contacting the riskiest 20% reaches 1.79× more stallers than random (95% CI 1.48–2.12; ROC-AUC 0.73 on unseen data). [Video presentation](https://youtu.be/vK5F7muNSz8) | Python, XGBoost, scikit-learn |
 | [Eskom Demand Forecasting](https://github.com/vusumuzinkosi/eskom-demand-forecasting) | How much electricity will South Africa need next week, hour by hour? | 3.1% MAPE a week ahead, 15% better than "same as last week"; 2.4% a day ahead vs Eskom's published 2.3% | Python, scikit-learn, gradient boosting |
 | [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should six analysts review each day? | Top 300 a day catches 98% of fraud cases (89% of the money), 87% of flags genuine | Python, scikit-learn, logistic regression |
 | [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Who will churn, how much value is at risk, and whom should retention call first? | Catches 95% of churners (ROC AUC 0.98); ranking by expected loss protects 82% of value at risk at 10% capacity | Python, scikit-learn, random forest |
