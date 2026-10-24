@@ -19,16 +19,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
-    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
-    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024d">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024d">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024d">
 </head>
 <body class="cs-page">
     <header class="cs-header">
         <a class="cs-logo" href="../" aria-label="Home">VN</a>
         <nav class="cs-nav">
             <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
-            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024d" target="_blank" rel="noopener">Resume</a>
         </nav>
     </header>
 
@@ -44,8 +44,8 @@
             </ul>
             <dl class="cs-facts">
                 <div><dt>Data</dt><dd>Online Retail II (UCI): two years of transactions, 5,852 customers, &pound;17.1 million</dd></div>
-                <div><dt>Methods</dt><dd>Data cleaning, RFM scoring, log transform and scaling, K-means, silhouette score, out-of-time validation</dd></div>
-                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn</dd></div>
+                <div><dt>Methods</dt><dd>Data cleaning, RFM scoring, log transform and scaling, K-means, silhouette score, out-of-time validation, SQL</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn, SQL (DuckDB)</dd></div>
             </dl>
             <div class="cs-actions">
                 <a class="cta-button" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
@@ -107,6 +107,30 @@
             </figure>
         </section>
         <section class="cs-section">
+            <h2>The pipeline in SQL</h2>
+            <p>In a company the transactions would sit in a database, not an Excel file, so the segmentation should not depend on Python. The cleaning and RFM steps are rebuilt in SQL with DuckDB and checked against the pandas versions.</p>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Query</th><th>What it does</th><th>SQL used</th></tr></thead>
+                    <tbody>
+                        <tr><td>Clean transactions</td><td>The cleaning rules in one query</td><td><code>SELECT DISTINCT</code>, <code>WHERE</code> filters, <code>regexp_matches</code></td></tr>
+                        <tr><td>RFM scores</td><td>Recency, frequency, monetary and 1 to 5 scores per customer</td><td>CTEs, <code>GROUP BY</code>, <code>NTILE(5) OVER (...)</code></td></tr>
+                        <tr><td>Segment summary</td><td>What each segment is worth, overall and in the last 90 days</td><td><code>JOIN</code>, window share of total, <code>FILTER (WHERE ...)</code></td></tr>
+                        <tr><td>Cohort retention</td><td>Share of each month's new customers who order again</td><td>CTEs, <code>date_trunc</code>, <code>date_diff</code>, <code>PARTITION BY</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Checked against pandas:</strong> the SQL gives exactly the same 776,577 purchase lines, 5,852 customers and &pound;17,068,568 of revenue, and recency, frequency and monetary match for every customer.</p>
+            <ul class="cs-list">
+                <li><strong>New and promising customers matter more than their total suggests:</strong> about 6% of all revenue, but about 17% of revenue in the last 90 days.</li>
+                <li><strong>New customers are lost quickly:</strong> only about 1 in 5 orders again in the month after their first order, so the welcome series should start straight after the first order.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-cohort-retention.webp" alt="Cohort retention heatmap showing the share of each month's new customers who order again in later months" loading="lazy" width="1100" height="645">
+                <figcaption>Monthly cohort retention, calculated in SQL.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
             <h2>Recommendation</h2>
             <ol class="cs-list">
                 <li>Stop the single email: load the segment file into the email platform and run four campaigns.</li>
@@ -145,7 +169,7 @@
         </div>
     </footer>
 
-    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+    <script src="../chatbot/chatbot.js?v=20261024d" defer></script>
     <!-- Visitor statistics: GoatCounter (no cookies) -->
     <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

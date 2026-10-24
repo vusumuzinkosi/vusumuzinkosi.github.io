@@ -76,10 +76,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <!-- Your Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261024d">
 
     <!-- Chatbot Widget -->
-    <link rel="stylesheet" href="chatbot/chatbot.css?v=20261024c">
+    <link rel="stylesheet" href="chatbot/chatbot.css?v=20261024d">
 </head>
 <body>
 
@@ -105,7 +105,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ol>
-                <a href="assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" class="nav-cv-button">Resume</a>
+                <a href="assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024d" target="_blank" class="nav-cv-button">Resume</a>
             </div>
         </nav>
     </header>
@@ -130,7 +130,7 @@
                     <li><strong>82%</strong><span>of revenue at risk protected by a ranked churn call list</span></li>
                 </ul>
                 <a href="#work" class="cta-button">View projects</a>
-                <a href="assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" class="cta-button cta-secondary" target="_blank" rel="noopener">Download resume</a>
+                <a href="assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024d" class="cta-button cta-secondary" target="_blank" rel="noopener">Download resume</a>
             </div>
         </section>
 
@@ -166,8 +166,8 @@
                             <li>scikit-learn &amp; XGBoost</li>
                             <li>Forecasting &amp; walk-forward validation</li>
                             <li>A/B testing (SciPy, statsmodels)</li>
-                            <li>SQL, Power BI &amp; Excel</li>
-                            <li>Matplotlib &amp; Seaborn</li>
+                            <li>SQL (CTEs, window functions) &amp; Excel</li>
+                            <li>Streamlit, Matplotlib &amp; Seaborn</li>
                         </ul>
                     </div>
                     <div class="about-pic">
@@ -243,7 +243,7 @@
                     <div class="featured-project-text">
                         <p class="featured-project-overline">Customer retention</p>
                         <h3 class="featured-project-title"><a href="projects/churn-prediction-revenue-at-risk.html">Churn Prediction: Revenue at Risk</a></h3>
-                        <p class="featured-project-description">Tells a retention team whom to call first. A random forest with a decision threshold set from the business cost of each error, then customers ranked by expected loss rather than churn probability alone.</p>
+                        <p class="featured-project-description">Tells a retention team whom to call first. A random forest with a decision threshold set from the business cost of each error, then customers ranked by expected loss rather than churn probability alone. A Streamlit planner rebuilds the call list for any team capacity and costs.</p>
                         <ul class="featured-project-metrics">
                             <li><strong>95%</strong><span>of churners caught (ROC AUC 0.98)</span></li>
                             <li><strong>82%</strong><span>of value at risk protected at 10% contact capacity</span></li>
@@ -254,6 +254,7 @@
                             <li>scikit-learn</li>
                             <li>Random forest</li>
                             <li>Cost-based threshold</li>
+                            <li>Streamlit</li>
                         </ul>
                         <div class="featured-project-links">
                             <a class="featured-project-link featured-project-link-primary" href="projects/churn-prediction-revenue-at-risk.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -294,7 +295,7 @@
                     <div class="featured-project-text">
                         <p class="featured-project-overline">Customer analytics</p>
                         <h3 class="featured-project-title"><a href="projects/customer-segmentation-rfm.html">Customer Segmentation: RFM and K-means for Targeted Campaigns</a></h3>
-                        <p class="featured-project-description">Replaces one-size-fits-all email with four customer segments, each with its own campaign. RFM tiers built by hand as a baseline, then K-means on log-scaled RFM, validated on the following six months of spending.</p>
+                        <p class="featured-project-description">Replaces one-size-fits-all email with four customer segments, each with its own campaign. RFM tiers built by hand as a baseline, then K-means on log-scaled RFM, validated on the following six months of spending. The cleaning and RFM steps are rebuilt in SQL (DuckDB) and match the pandas results exactly.</p>
                         <ul class="featured-project-metrics">
                             <li><strong>19%</strong><span>of customers bring in 72% of revenue</span></li>
                             <li><strong>4</strong><span>segments, each with a proposed campaign</span></li>
@@ -305,6 +306,7 @@
                             <li>pandas</li>
                             <li>scikit-learn</li>
                             <li>K-means</li>
+                            <li>SQL (DuckDB)</li>
                         </ul>
                         <div class="featured-project-links">
                             <a class="featured-project-link featured-project-link-primary" href="projects/customer-segmentation-rfm.html">Read the case study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
@@ -444,8 +446,8 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20261024c"></script>
-    <script src="chatbot/chatbot.js?v=20261024c" defer></script>
+    <script src="assets/js/main.js?v=20261024d"></script>
+    <script src="chatbot/chatbot.js?v=20261024d" defer></script>
     <!-- Visitor statistics: GoatCounter (no cookies) -->
     <script data-goatcounter="https://vusumuzinkosi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
