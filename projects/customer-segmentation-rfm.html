@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation: RFM and K-means for Targeted Campaigns | Vusumuzi Nkosi</title>
+    <meta name="description" content="Four customer segments that tell marketing where to spend, whom to win back, whom to grow and whom to stop chasing, validated on what customers did in the following six months.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Customer Segmentation: RFM and K-means for Targeted Campaigns">
+    <meta property="og:description" content="Four customer segments that tell marketing where to spend, whom to win back, whom to grow and whom to stop chasing, validated on what customers did in the following six months.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/customer-segmentation-rfm.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/customer-segmentation-rfm.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+</head>
+<body class="cs-page">
+    <header class="cs-header">
+        <a class="cs-logo" href="../" aria-label="Home">VN</a>
+        <nav class="cs-nav">
+            <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+        </nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-overline">Customer analytics &middot; Case study</p>
+            <h1>Customer Segmentation: RFM and K-means for Targeted Campaigns</h1>
+            <p class="cs-summary">Four customer segments that tell marketing where to spend, whom to win back, whom to grow and whom to stop chasing, validated on what customers did in the following six months.</p>
+            <ul class="cs-metrics">
+                <li><strong>19%</strong><span>of customers bring in 72% of revenue</span></li>
+                <li><strong>4</strong><span>segments, each with its own campaign</span></li>
+                <li><strong>19&times;</strong><span>more spent by the top segment than lapsed buyers</span></li>
+            </ul>
+            <dl class="cs-facts">
+                <div><dt>Data</dt><dd>Online Retail II (UCI): two years of transactions, 5,852 customers, &pound;17.1 million</dd></div>
+                <div><dt>Methods</dt><dd>Data cleaning, RFM scoring, log transform and scaling, K-means, silhouette score, out-of-time validation</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn</dd></div>
+            </dl>
+            <div class="cs-actions">
+                <a class="cta-button" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
+                <a class="cta-button cta-secondary" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm#readme" target="_blank" rel="noopener">Full write-up on GitHub</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The problem</h2>
+            <p>The imagined client is a South African online gift and homeware retailer that sends every customer the same email: the same products, the same discount, the same timing.</p>
+            <p><strong>Question:</strong> which natural customer groups exist, and what should marketing say to each? A good answer is a handful of segments that are clearly different, easy to name, large enough to run a campaign for, and that predict future buying.</p>
+        </section>
+        <section class="cs-section">
+            <h2>Cleaning and first look</h2>
+            <p>From 1,067,371 invoice lines, removed duplicates, lines without a customer ID, cancellations, non-product lines and invalid quantities or prices, leaving 776,577 lines: 5,852 customers, 36,594 orders and &pound;17.1 million in revenue.</p>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-monthly-revenue.webp" alt="Monthly revenue with strong peaks in October and November" loading="lazy" width="1100" height="411">
+                <figcaption>Sales are strongly seasonal, and the top 10% of customers bring in 64% of revenue.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Approach</h2>
+            <ul class="cs-list">
+                <li><strong>Baseline by hand:</strong> recency, frequency and monetary value scored 1 to 5 and summed into Gold, Silver and Bronze tiers.</li>
+                <li><strong>Hypothesis:</strong> Silver hides two groups needing opposite messages, new customers and regulars drifting away.</li>
+                <li><strong>K-means</strong> on log-transformed, standardised RFM values, so a few giant customers cannot dominate the distances.</li>
+                <li><strong>Choosing k:</strong> k = 4 is a local silhouette peak and a number of campaigns marketing can actually run.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-rfm-tiers.webp" alt="RFM tiers by recency, frequency and spend" loading="lazy" width="913" height="489">
+                <figcaption>The hand-built RFM tiers used as the baseline.</figcaption>
+            </figure>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-choosing-k.webp" alt="Silhouette score and inertia for k from 2 to 10" loading="lazy" width="1100" height="367">
+                <figcaption>Statistics narrows the choice of k; the business use makes it.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Results</h2>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-clusters-scatter.webp" alt="Scatter plot of the four K-means clusters on recency and frequency" loading="lazy" width="1100" height="399">
+                <figcaption>K-means splits the Silver tier into new customers and drifting regulars.</figcaption>
+            </figure>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Segment</th><th>Customers</th><th>Share of revenue</th><th>Campaign</th></tr></thead>
+                    <tbody>
+                        <tr class="cs-row-highlight"><td><strong>Loyal big spenders</strong></td><td>1,110 (19%)</td><td>72%</td><td>Protect and reward: early access, account contact, no discounts</td></tr>
+                        <tr><td>Drifting regulars</td><td>1,468 (25%)</td><td>18%</td><td>Win back now: personal email with past favourites</td></tr>
+                        <tr><td>New and promising</td><td>1,220 (21%)</td><td>6%</td><td>Grow the habit: welcome series and next-order incentive</td></tr>
+                        <tr><td>Lapsed one-time buyers</td><td>2,054 (35%)</td><td>4%</td><td>Low-cost seasonal reactivation only</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Do the segments predict the future?</strong> Rebuilding the pipeline on data up to June 2011 only, the top segment's customers spent about 19 times as much in the next six months as the lapsed segment's (&pound;4,075 against &pound;210), and 93% of them bought again.</p>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/segmentation-segment-share.webp" alt="Share of customers and revenue by segment" loading="lazy" width="1000" height="471">
+                <figcaption>A fifth of customers bring in about three quarters of revenue.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Recommendation</h2>
+            <ol class="cs-list">
+                <li>Stop the single email: load the segment file into the email platform and run four campaigns.</li>
+                <li>Focus effort on the two middle segments: turning new customers into regulars and catching drifting regulars before they lapse.</li>
+                <li>Run the win-back campaign in August and September, ahead of the October and November peak.</li>
+                <li>Refresh segments monthly, and keep a random 10% holdout per segment to measure what each campaign really changes.</li>
+            </ol>
+        </section>
+        <section class="cs-section">
+            <h2>Limitations</h2>
+            <ul class="cs-list">
+                <li>Purchase history only: no data on interests, channel or whether a customer is a shop or an individual.</li>
+                <li>Almost a quarter of lines are anonymous and could not be segmented.</li>
+                <li>UK data from 2009 to 2011 in pounds: the method transfers, the exact thresholds would not.</li>
+            </ul>
+        </section>
+
+        <section class="cs-section cs-cta">
+            <h2>Interested in this work?</h2>
+            <p>I'm looking for data scientist and data analyst roles in South Africa or remote.</p>
+            <div class="cs-actions">
+                <a class="cta-button" href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email me</a>
+                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <nav class="cs-next" aria-label="Next project">
+            <span>Next project</span>
+            <a href="eskom-demand-forecasting.html">Eskom Demand Forecasting: How Much Electricity Will South Africa Need Next Week? <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+        </div>
+    </footer>
+
+    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+</body>
+</html>

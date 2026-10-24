@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection: A Daily Review Queue for Mobile Money | Vusumuzi Nkosi</title>
+    <meta name="description" content="A fraud model that hands a mobile money fraud team its daily review queue, sized to how many cases six analysts can actually check, built on 2.6 million simulated transactions.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fraud Detection: A Daily Review Queue for Mobile Money">
+    <meta property="og:description" content="A fraud model that hands a mobile money fraud team its daily review queue, sized to how many cases six analysts can actually check, built on 2.6 million simulated transactions.">
+    <meta property="og:url" content="https://vusumuzinkosi.github.io/projects/fraud-detection-mobile-money.html">
+    <meta property="og:image" content="https://vusumuzinkosi.github.io/assets/images/social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://vusumuzinkosi.github.io/projects/fraud-detection-mobile-money.html">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20261024c">
+    <link rel="stylesheet" href="../assets/css/project.css?v=20261024c">
+    <link rel="stylesheet" href="../chatbot/chatbot.css?v=20261024c">
+</head>
+<body class="cs-page">
+    <header class="cs-header">
+        <a class="cs-logo" href="../" aria-label="Home">VN</a>
+        <nav class="cs-nav">
+            <a href="../#work"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+            <a class="nav-cv-button" href="../assets/Vusumuzi_Nkosi_Resume.pdf?v=20261024c" target="_blank" rel="noopener">Resume</a>
+        </nav>
+    </header>
+
+    <main class="cs-main">
+        <section class="cs-hero">
+            <p class="cs-overline">Fraud detection &middot; Case study</p>
+            <h1>Fraud Detection: A Daily Review Queue for Mobile Money</h1>
+            <p class="cs-summary">A fraud model that hands a mobile money fraud team its daily review queue, sized to how many cases six analysts can actually check, built on 2.6 million simulated transactions.</p>
+            <ul class="cs-metrics">
+                <li><strong>98%</strong><span>of fraud cases caught (89% of the money)</span></li>
+                <li><strong>87%</strong><span>of flagged transactions are genuine fraud</span></li>
+                <li><strong>300</strong><span>reviews a day, matching team capacity</span></li>
+            </ul>
+            <dl class="cs-facts">
+                <div><dt>Data</dt><dd>PaySim, a simulated mobile money log calibrated on real transactions (14 normal-volume days)</dd></div>
+                <div><dt>Methods</dt><dd>Weighted logistic regression, isolation forest, gradient boosting, PR AUC, capacity threshold</dd></div>
+                <div><dt>Tools</dt><dd>Python, pandas, scikit-learn, imbalanced-learn</dd></div>
+            </dl>
+            <div class="cs-actions">
+                <a class="cta-button" href="https://github.com/vusumuzinkosi/fraud-detection-mobile-money" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Code and notebooks</a>
+                <a class="cta-button cta-secondary" href="https://github.com/vusumuzinkosi/fraud-detection-mobile-money#readme" target="_blank" rel="noopener">Full write-up on GitHub</a>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <h2>The problem</h2>
+            <p>The imagined client is a South African mobile money provider whose fraud team reviews suspicious transactions by hand. A missed fraud costs the full amount stolen; a false alarm costs about R60 of analyst time, but too many false alarms teach analysts to ignore the queue.</p>
+            <p><strong>Question:</strong> which transactions should the team review each day to catch most fraud without drowning in false alarms? With six analysts reviewing about 50 cases each, capacity, not a 0.5 probability, sets the threshold.</p>
+        </section>
+        <section class="cs-section">
+            <h2>What the data shows</h2>
+            <ul class="cs-list">
+                <li><strong>Fraud is extremely rare:</strong> 0.13% of transactions, so predicting &ldquo;no fraud&rdquo; is 99.87% accurate and catches nothing.</li>
+                <li><strong>Fraud only happens in transfers and cash-outs,</strong> so only those are scored.</li>
+                <li><strong>Fraud has a signature:</strong> in 98% of cases the amount is the account's entire balance, and fraud is far more common at night.</li>
+                <li><strong>A leaking column:</strong> the &ldquo;after&rdquo; balances give the answer away (a simulator quirk) and would not exist before approval, so they were removed.</li>
+                <li><strong>Simulator quiet days</strong> distort the fraud rate, so only the 14 normal-volume days are used.</li>
+            </ul>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/fraud-fraud-rate-by-hour.webp" alt="Fraud rate by hour of day, much higher overnight" loading="lazy" width="1100" height="452">
+                <figcaption>Fraud makes up a far bigger share of transactions at night.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Approach</h2>
+            <ul class="cs-list">
+                <li><strong>Time-ordered split:</strong> 8 days to train, 2 to choose the model, 4 to test, never at random.</li>
+                <li><strong>Baselines:</strong> &ldquo;nothing is fraud&rdquo; (99.85% accurate, 0% recall) and the provider's existing rule (1 flag in 4 days).</li>
+                <li><strong>Three models compared on PR AUC,</strong> because ROC AUC flatters models on rare events: weighted logistic regression 0.987, gradient boosting 0.984, isolation forest 0.362.</li>
+                <li><strong>Simpler won:</strong> the logistic regression captures the few strong signals and is the easiest to explain to a fraud manager and an auditor.</li>
+            </ul>
+            <figure class="cs-figure cs-figure-narrow">
+                <img src="../assets/images/projects/fraud-precision-recall-curves.webp" alt="Precision-recall curves for the three models" loading="lazy" width="626" height="634">
+                <figcaption>PR AUC separates the models where ROC AUC does not.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Results</h2>
+            <p>On the four unseen test days, each day's 300 highest-scoring transfers and cash-outs went to the team (test PR AUC 0.993):</p>
+            <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Reviews per day</th><th>Fraud cases caught</th><th>Fraud value caught</th><th>Flags that are fraud</th></tr></thead>
+                    <tbody>
+                        <tr><td>50</td><td>19%</td><td>55%</td><td>100%</td></tr>
+                        <tr><td>200</td><td>75%</td><td>87%</td><td>100%</td></tr>
+                        <tr class="cs-row-highlight"><td><strong>300</strong></td><td><strong>98%</strong></td><td><strong>89%</strong></td><td><strong>87%</strong></td></tr>
+                        <tr><td>500</td><td>100%</td><td>100%</td><td>53%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <figure class="cs-figure">
+                <img src="../assets/images/projects/fraud-capacity-tradeoff.webp" alt="Fraud cases caught and precision against reviews per day, with current capacity of 300 marked" loading="lazy" width="1000" height="564">
+                <figcaption>Past about 300 reviews a day, extra reviews are mostly false alarms.</figcaption>
+            </figure>
+            <p><strong>The misses are informative.</strong> One test day had 320 frauds against 300 reviews, a staffing miss no model can fix. Every other miss was a transfer of exactly 10 million (the transaction limit) that did not empty the account: large thefts split into chunks. A one-line rule closes that gap.</p>
+            <figure class="cs-figure cs-figure-narrow">
+                <img src="../assets/images/projects/fraud-confusion-matrix-capacity.webp" alt="Confusion matrix at a capacity of 300 reviews a day" loading="lazy" width="624" height="565">
+                <figcaption>Results at the team's capacity across the four test days.</figcaption>
+            </figure>
+        </section>
+        <section class="cs-section">
+            <h2>Recommendation</h2>
+            <ol class="cs-list">
+                <li>Replace the existing rule with the model-ranked queue: send the top 300 transfers and cash-outs a day to the team.</li>
+                <li>Keep the team at about 300 reviews a day; below 250 recall drops quickly, above 300 extra reviews are mostly false alarms.</li>
+                <li>Add one rule: review every transfer at the 10 million transaction limit.</li>
+                <li>Hold transfers in real time, since fraud moves as a transfer followed by a cash-out.</li>
+                <li>On short-staffed days, work the queue from the top: the first 100 reviews are 100% fraud and cover 73% of the value.</li>
+            </ol>
+        </section>
+        <section class="cs-section">
+            <h2>Limitations</h2>
+            <ul class="cs-list">
+                <li>Simulated data is far cleaner than reality; real fraudsters adapt, so real precision and recall would be lower. The value is the method: time split, leakage check and a capacity-based threshold.</li>
+                <li>No customer history such as device, location or SIM-swap signals.</li>
+                <li>Only four test days; a deployed model would be monitored daily and retrained.</li>
+            </ul>
+        </section>
+
+        <section class="cs-section cs-cta">
+            <h2>Interested in this work?</h2>
+            <p>I'm looking for data scientist and data analyst roles in South Africa or remote.</p>
+            <div class="cs-actions">
+                <a class="cta-button" href="mailto:vusizwe@rocketmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email me</a>
+                <a class="cta-button cta-secondary" href="https://www.linkedin.com/in/vusumuzinkosi/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <nav class="cs-next" aria-label="Next project">
+            <span>Next project</span>
+            <a href="churn-prediction-revenue-at-risk.html">Churn Prediction: Revenue at Risk <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <a href="https://github.com/vusumuzinkosi" target="_blank" rel="noopener">Vusumuzi Nkosi</a></p>
+        </div>
+    </footer>
+
+    <script src="../chatbot/chatbot.js?v=20261024c" defer></script>
+</body>
+</html>
