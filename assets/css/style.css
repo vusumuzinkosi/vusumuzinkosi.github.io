@@ -1498,6 +1498,7 @@ main {
   .cert-org {
     margin-left: 0;
     margin-top: 4px;
+    white-space: normal;
   }
 }
 
@@ -1979,4 +1980,24 @@ main {
   color: var(--green);
   font-family: var(--font-mono);
   font-size: var(--fz-xxs);
+}
+
+.hero .cta-secondary {
+  margin-left: 15px;
+  border-color: var(--slate);
+  color: var(--light-slate);
+}
+
+@media (max-width: 480px) {
+  .hero .cta-secondary {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}
+
+/* Small screens: keep only the logo and Resume button in the header */
+@media (max-width: 768px) {
+  .header .nav-menu ol {
+    display: none;
+  }
 }

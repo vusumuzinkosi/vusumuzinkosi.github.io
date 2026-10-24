@@ -28,15 +28,15 @@ I'm a data science postgraduate student (STADIO, NQF 8) and ALX Data Science gra
 
 ## Projects
 
-Five end-to-end projects, each built around a business question. I'm completing them in stages.
+Five end-to-end projects. Each one starts from a business question and ends with a decision someone could act on.
 
-| Project | Business question | Tools | Status |
+| Project | Business question | Result | Tools |
 |---|---|---|---|
-| [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Which customers are likely to leave, and how much revenue is at risk? | Python, pandas, scikit-learn | In progress |
-| [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should a fraud team review first each day? | Python, scikit-learn, imbalanced-learn | In progress |
-| [Customer Segmentation: RFM and K-means](https://github.com/vusumuzinkosi/customer-segmentation-rfm) | How should customers be grouped for targeted campaigns? | Python, pandas, scikit-learn | In progress |
-| [A/B Test: New Landing Page](https://github.com/vusumuzinkosi/ab-test-landing-page) | Should the online store roll out the new landing page? | Python, SciPy, statsmodels | In progress |
-| [Eskom Demand Forecasting](https://github.com/vusumuzinkosi/eskom-demand-forecasting) | How much electricity will South Africa need next week? | Python, statsmodels, scikit-learn | In progress |
+| [Eskom Demand Forecasting](https://github.com/vusumuzinkosi/eskom-demand-forecasting) | How much electricity will South Africa need next week, hour by hour? | 3.1% MAPE a week ahead, 15% better than "same as last week"; 2.4% a day ahead vs Eskom's published 2.3% | Python, scikit-learn, gradient boosting |
+| [Fraud Detection: A Daily Review Queue for Mobile Money](https://github.com/vusumuzinkosi/fraud-detection-mobile-money) | Which transactions should six analysts review each day? | Top 300 a day catches 98% of fraud cases (89% of the money), 87% of flags genuine | Python, scikit-learn, logistic regression |
+| [Churn Prediction: Revenue at Risk](https://github.com/vusumuzinkosi/churn-prediction-revenue-at-risk) | Who will churn, how much value is at risk, and whom should retention call first? | Catches 95% of churners (ROC AUC 0.98); ranking by expected loss protects 82% of value at risk at 10% capacity | Python, scikit-learn, random forest |
+| [A/B Test: New Landing Page](https://github.com/vusumuzinkosi/ab-test-landing-page) | Should the online store roll out the new landing page? | Don't roll out: −0.16 points, p = 0.19, 95% CI −0.39 to +0.08, 98% power | Python, statsmodels, SciPy |
+| [Customer Segmentation: RFM and K-means](https://github.com/vusumuzinkosi/customer-segmentation-rfm) | Which customer groups exist, and what should each one hear? | 4 segments; loyal big spenders are 19% of customers and 72% of revenue | Python, pandas, scikit-learn |
 
 ---
 
@@ -45,9 +45,9 @@ Five end-to-end projects, each built around a business question. I'm completing 
 | Category | Technologies |
 |----------|-------------|
 | **Programming** | Python, SQL, R (basic) |
-| **Machine Learning** | scikit-learn, imbalanced-learn, classification, clustering (K-means), feature engineering, cross-validation |
+| **Machine Learning** | scikit-learn, XGBoost, gradient boosting, random forest, logistic regression, K-means, cost-based thresholds, time-based validation |
 | **Statistics & Experimentation** | SciPy, statsmodels, hypothesis testing, A/B testing, confidence intervals, regression |
-| **Forecasting** | Time-series analysis and forecasting with statsmodels |
+| **Forecasting** | Time-series forecasting, walk-forward validation, baseline comparison |
 | **Data & Visualisation** | pandas, NumPy, Matplotlib, Seaborn, Power BI, Tableau, Excel |
 | **Tools** | Git, GitHub, Jupyter Notebook, Google Colab |
 
@@ -59,7 +59,8 @@ Five end-to-end projects, each built around a business question. I'm completing 
 |--------------|-------------|------|
 | PGDip Data Science (NQF 8) | STADIO Higher Education | 2026 (in progress) |
 | Data Science Programme | ALX Africa | 2025–2026 |
-| BSc Mathematics & Computer Science | University of South Africa | 2022–2025 |
+| PGDip TVET | University of the Western Cape | 2024–2025 |
+| BSc Mathematics & Computer Science | University of South Africa | 2019–2024 |
 | BEd Mathematics & Computer Science | University of South Africa | 2012–2017 |
 
 | Certification | Issuer |
