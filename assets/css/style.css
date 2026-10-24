@@ -2202,3 +2202,78 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* ── Hero highlights ── */
+.hero .hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 190px));
+  gap: 16px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero .hero-highlights li {
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background-color: var(--navy);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.hero .hero-highlights strong {
+  display: block;
+  color: var(--green);
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.hero .hero-highlights span {
+  display: block;
+  margin-top: 6px;
+  color: var(--light-slate);
+  font-size: var(--fz-xs);
+  line-height: 1.4;
+}
+
+.hero .cta-button {
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .hero .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+}
+
+/* Keep the portrait square instead of stretching to its height attribute */
+.about .about-content .about-pic .pic-wrapper img {
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Clear the fixed header on small screens now that the hero is taller */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + 20px);
+    padding-bottom: 40px;
+  }
+}
+
+/* Show the portrait in natural colour (no green tint) */
+.about .about-content .about-pic .pic-wrapper {
+  background-color: transparent;
+}
+
+.about .about-content .about-pic .pic-wrapper img,
+.about .about-content .about-pic .pic-wrapper .img {
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.about .about-content .about-pic .pic-wrapper:before {
+  background-color: transparent;
+  mix-blend-mode: normal;
+}

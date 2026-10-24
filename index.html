@@ -117,12 +117,18 @@
             <div class="container">
                 <h1 class="hero-intro">Data Scientist &middot; South Africa</h1>
                 <h2 class="hero-title">Vusumuzi Nkosi.</h2>
-                <h3 class="hero-subtitle">I turn data into business decisions.</h3>
+                <h3 class="hero-subtitle">I build models that tell teams what to do next.</h3>
                 <p class="hero-description">
-                    Data scientist completing a postgraduate diploma in Data Science, with 9+ years of quantitative
-                    teaching experience. I build predictive models, analyse experiments and forecast demand,
-                    and I start every project from the decision it needs to support.
+                    Data scientist in South Africa specialising in forecasting, fraud and risk analytics,
+                    and experimentation. I start from the decision a team has to make, prove the model
+                    beats a simple baseline, and explain the result in plain language, a skill sharpened
+                    over nine years of teaching mathematics.
                 </p>
+                <ul class="hero-highlights">
+                    <li><strong>3.1%</strong><span>error forecasting national electricity demand a week ahead</span></li>
+                    <li><strong>98%</strong><span>of fraud caught within a team's daily review capacity</span></li>
+                    <li><strong>82%</strong><span>of revenue at risk protected by a ranked churn call list</span></li>
+                </ul>
                 <a href="#work" class="cta-button">View projects</a>
                 <a href="assets/Vusumuzi_Nkosi_Resume.pdf" class="cta-button cta-secondary" target="_blank" rel="noopener">Download resume</a>
             </div>
@@ -137,27 +143,31 @@
                 <div class="about-content">
                     <div class="about-text">
                         <p>
-                            I'm a data scientist completing a Postgraduate Diploma in Data Science
-                            (STADIO, NQF 8), with a Postgraduate Diploma in TVET from the University of the
-                            Western Cape and an ALX Data Science certificate. More than nine years as a
-                            mathematics lecturer have given me the ability to explain complex quantitative
-                            findings clearly to technical and non-technical audiences alike.
+                            I'm a data scientist based in Newcastle, KwaZulu-Natal, completing a Postgraduate
+                            Diploma in Data Science at STADIO (NQF 8). Before moving into data science I spent
+                            more than nine years teaching mathematics and IT, most recently as a Senior Lecturer
+                            at Amajuba TVET College, where I already used learner performance data to spot
+                            at-risk students early.
                         </p>
                         <p>
-                            My projects each answer a concrete business question: which customers
-                            are about to churn and how much revenue is at risk, which mobile money transactions
-                            a fraud team should review first, how to segment customers for targeted campaigns,
-                            whether a new landing page is worth rolling out, and how much electricity South Africa
-                            will need next week.
+                            That background shapes how I work. I begin with the decision a team needs to make
+                            and what a wrong answer would cost, compare every model with a simple baseline,
+                            validate on data the model has never seen, and size the output to what people can
+                            actually act on. Then I explain the result so a manager, not only another analyst,
+                            can use it.
+                        </p>
+                        <p>
+                            I'm looking for <strong>data scientist</strong> and <strong>data analyst</strong>
+                            roles in South Africa or remote.
                         </p>
                         <p>Core tools and methods:</p>
                         <ul class="skills-list">
                             <li>Python (pandas, NumPy)</li>
-                            <li>Machine learning (scikit-learn, imbalanced-learn)</li>
-                            <li>Statistics & A/B testing (SciPy, statsmodels)</li>
-                            <li>Time-series forecasting</li>
-                            <li>SQL, Power BI & Excel</li>
-                            <li>Matplotlib & Seaborn</li>
+                            <li>scikit-learn &amp; XGBoost</li>
+                            <li>Forecasting &amp; walk-forward validation</li>
+                            <li>A/B testing (SciPy, statsmodels)</li>
+                            <li>SQL, Power BI &amp; Excel</li>
+                            <li>Matplotlib &amp; Seaborn</li>
                         </ul>
                     </div>
                     <div class="about-pic">
@@ -290,52 +300,50 @@
                     </a>
                 </article>
 
-                <h3 class="more-projects-title">More projects</h3>
-                <div class="other-projects-grid">
-                    <div class="other-project">
-                        <div class="other-project-header">
-                            <i class="far fa-folder folder-icon" aria-hidden="true"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/vusumuzinkosi/ab-test-landing-page" aria-label="GitHub repository for A/B Test: Should the Online Store Roll Out the New Landing Page?" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <p class="project-status">Completed</p>
-                        <h3 class="other-project-title">
-                            <a href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener">A/B Test: Should the Online Store Roll Out the New Landing Page?</a>
-                        </h3>
-                        <p class="other-project-description">
-                            A pre-registered test on 290,584 visitors with a clear answer: don't roll out. The new page converted 0.16 points lower (p = 0.19, 95% CI &minus;0.39 to +0.08), and with 98% power the whole interval sits below the +0.5-point lift worth acting on.
-                        </p>
-                        <ul class="other-project-tech-list">
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Experimentation</p>
+                        <h3 class="featured-project-title"><a href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener">A/B Test: Should the Online Store Roll Out the New Landing Page?</a></h3>
+                        <p class="featured-project-description">A pre-registered test on 290,584 visitors, with the significance level and the smallest lift worth acting on fixed before looking at results, after cleaning mismatched rows and duplicate users.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>&minus;0.16</strong><span>points conversion change (p = 0.19)</span></li>
+                            <li><strong>98%</strong><span>power to detect the lift that matters</span></li>
+                            <li><strong>No</strong><span>rollout: the whole 95% CI sits below +0.5 points</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
                             <li>Python</li>
                             <li>statsmodels</li>
                             <li>SciPy</li>
                             <li>Hypothesis testing</li>
                         </ul>
+                        <a class="featured-project-link" href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> View code and write-up</a>
                     </div>
-
-                    <div class="other-project">
-                        <div class="other-project-header">
-                            <i class="far fa-folder folder-icon" aria-hidden="true"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" aria-label="GitHub repository for Customer Segmentation: RFM and K-means for Targeted Campaigns" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <p class="project-status">Completed</p>
-                        <h3 class="other-project-title">
-                            <a href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener">Customer Segmentation: RFM and K-means for Targeted Campaigns</a>
-                        </h3>
-                        <p class="other-project-description">
-                            Four segments from 5,852 customers and two years of transactions, each with its own campaign. Loyal big spenders are 19% of customers and 72% of revenue, and segments built on older data predicted the next six months: the top group spent 19&times; as much as lapsed buyers.
-                        </p>
-                        <ul class="other-project-tech-list">
+                    <a class="featured-project-chart" href="https://github.com/vusumuzinkosi/ab-test-landing-page" target="_blank" rel="noopener">
+                        <img src="assets/images/projects/ab-decision-interval.webp" alt="Confidence interval chart: the new page changed conversion by -0.16 points, 95% CI -0.39 to +0.08, entirely below the +0.5-point lift worth acting on" loading="lazy" width="1000" height="402">
+                    </a>
+                </article>
+                <article class="featured-project">
+                    <div class="featured-project-text">
+                        <p class="featured-project-overline">Customer analytics</p>
+                        <h3 class="featured-project-title"><a href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener">Customer Segmentation: RFM and K-means for Targeted Campaigns</a></h3>
+                        <p class="featured-project-description">Replaces one-size-fits-all email with four customer segments, each with its own campaign. RFM tiers built by hand as a baseline, then K-means on log-scaled RFM, validated on the following six months of spending.</p>
+                        <ul class="featured-project-metrics">
+                            <li><strong>19%</strong><span>of customers bring in 72% of revenue</span></li>
+                            <li><strong>4</strong><span>segments, each with a proposed campaign</span></li>
+                            <li><strong>19&times;</strong><span>more spent by the top segment than lapsed buyers</span></li>
+                        </ul>
+                        <ul class="featured-project-tech">
                             <li>Python</li>
                             <li>pandas</li>
                             <li>scikit-learn</li>
                             <li>K-means</li>
                         </ul>
+                        <a class="featured-project-link" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> View code and write-up</a>
                     </div>
-                </div>
+                    <a class="featured-project-chart" href="https://github.com/vusumuzinkosi/customer-segmentation-rfm" target="_blank" rel="noopener">
+                        <img src="assets/images/projects/segmentation-segment-share.webp" alt="Stacked bar chart: loyal big spenders are 19% of customers and 72% of revenue; drifting regulars 25% and 18%; new and promising 21%; lapsed one-time buyers 35%" loading="lazy" width="1000" height="471">
+                    </a>
+                </article>
             </div>
         </section>
 
