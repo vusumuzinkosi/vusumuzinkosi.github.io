@@ -54,7 +54,8 @@
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  visibility: hidden; /* keeps the closed window out of the keyboard Tab order */
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), visibility 0s linear 0.3s;
   font-family: "Inter", "SF Pro Text", -apple-system, system-ui, sans-serif;
 }
 
@@ -62,6 +63,8 @@
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: all;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 /* Header */
