@@ -832,3 +832,28 @@ button.cta-button { background: transparent; }
   border-color: var(--green);
   color: var(--green);
 }
+
+/* Inline SVG icons (replace the Font Awesome web font) */
+.icon {
+  display: inline-block;
+  line-height: 1;
+  font-style: normal;
+}
+.icon svg {
+  display: inline-block;
+  height: 1em;
+  overflow: visible;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
+/* Keyboard focus: every link and button shows the same dashed outline.
+   Some older rules remove the outline on :focus; this brings it back for
+   keyboard users only (mouse clicks do not trigger :focus-visible). */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px dashed var(--green) !important;
+  outline-offset: 3px;
+}

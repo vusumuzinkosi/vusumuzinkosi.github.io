@@ -180,6 +180,8 @@
     if (e.key === "Escape" && win.classList.contains("open")) {
       win.classList.remove("open");
       toggle.classList.remove("active");
+      toggle.setAttribute("aria-label", "Open chat");
+      toggle.focus();
     }
   });
 

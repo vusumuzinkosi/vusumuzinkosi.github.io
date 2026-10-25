@@ -39,7 +39,7 @@
   if (/[?&]sent=1/.test(window.location.search)) {
     var note = document.querySelector('[data-form-status]');
     if (note) {
-      note.textContent = 'Thanks, your message was sent. I will reply as soon as I can.';
+      note.textContent = 'Thanks, your message was sent. I usually reply within 24 hours.';
       note.style.color = 'var(--green)';
     }
   }
