@@ -821,3 +821,14 @@ button.cta-button { background: transparent; }
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
 }
+
+/* Secondary buttons look the same everywhere (grey, green on hover) */
+.cta-button.cta-secondary {
+  border-color: var(--slate);
+  color: var(--light-slate);
+}
+.cta-button.cta-secondary:hover,
+.cta-button.cta-secondary:focus-visible {
+  border-color: var(--green);
+  color: var(--green);
+}
